@@ -1,0 +1,44 @@
+<form [formGroup]="cardForm" class="bg-white my-10 mx-auto border-2 py-3 border-black rounded-2xl w-1/2 shadow-custom w-96">
+    <div class="container mx-auto text-center py-3">
+        <div class="flex flex-col p-2 gap-2">
+            <label for="Email">E-mail</label>
+            <input type="email" name="form"
+                class="border-2 p-1 w-3/4 mx-auto text-black text-center hover:border-black focus:outline-none transition duration-200 ease-out rounded-2xl"
+                formControlName="email">
+        </div>
+
+        <div class="flex flex-col p-2 gap-2">
+            <label for="Email">Nome </label>
+            <input type="text" name="form"
+                class="border-2 p-1 w-3/4 mx-auto text-black text-center hover:border-black focus:outline-none transition duration-200 ease-out rounded-2xl"
+                formControlName="nome">
+        </div>
+        <div class="flex flex-col p-2 gap-2">
+            <label for="Email">Ultimo Nome</label>
+            <input type="text" name="form"
+                class="border-2 p-1 w-3/4 mx-auto text-black text-center hover:border-black focus:outline-none transition duration-200 ease-out rounded-2xl"
+                formControlName="last_name">
+        </div>
+        <div class="flex flex-col p-2 gap-2">
+            <label for="cpf">CPF</label>
+            @if(cardForm.get('cpf')?.errors) {
+                <p class="text-red-500">CPF deve ter 14 caracteres.</p>
+            }
+            <input type="text" name="form"
+                class="border-2 p-1 w-3/4 mx-auto text-black text-center text-center hover:border-black focus:outline-none transition duration-200 ease-out rounded-2xl"
+                formControlName="cpf">
+        </div>
+        <div class="py-6">
+            <button class="bg-blue-800 p-2 text-white rounded-2xl w-3/4" [disabled]="!cardForm.valid" (click)="OnSubmit()">Pagar</button>
+        </div>
+        
+        @if(linkAcesso){
+            <a [href]="linkAcesso" target="_blank" class="text-sm bg-teal-600 p-3 w-full rounded-2xl text-white">
+                Link para Pagamento
+            </a>
+        }@else {
+            <p class="font-bold">Aguarde o link ser liberado</p>
+        }
+        
+    </div>
+</form>

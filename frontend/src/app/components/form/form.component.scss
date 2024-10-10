@@ -1,0 +1,12 @@
+.numbers {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.numbers::-webkit-inner-spin-button, .numbers::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+.numbers::-moz-appearance{
+    -moz-appearance: none;
+}
